@@ -132,6 +132,14 @@
 .hljs-monokai .javascript .xml {
   opacity: 0.8;
 }
+.remark-code-line-highlighted {
+  background-color: #6F735F;
+}
+.remark-inline-code {
+  background-color: #6d6d6d;
+  border-radius: 0;
+}
+
     </style>
   </head>
   <body>
@@ -153,101 +161,100 @@ github.com/girishso
 ---
 # Agenda
 
-## React Intro
+## React
 ## React on Rails
+
+---
+name: inverse
+layout: true
+class: left, top, inverse
 
 ---
 
 # React
-
----
-.left-column[
-  ## What is it?
-]
-.right-column[
-<li>Javascript Library For Building .red[Single Page Applications]</li>
-]
+## Library for building Single Page Applications
 
 --
 
-.right-column[
-<li>Deals only with the .red[View]</li>
-]
-
----
-.left-column[
-  ## What is it?
-  ## Why use it?
-]
-.right-column[
-![alt text](images/frameworks.png)
-]
+## View
 
 --
-.right-column[
-<li>MVC MVVM Architecture</li>
-]
 
+## <del>Model</del>
 
 --
-.right-column[
-<li>Models</li>
-]
 
-
---
-.right-column[
-<li>.red[Mutation]</li>
-]
+## <del>Controllers</del>
 
 
 ---
-.left-column[
-  ## What is it?
-  ## Why use it?
-]
-.right-column[
-![alt text](images/mvc1.png)
-]
-
----
-.left-column[
-  ## What is it?
-  ## Why use it?
-]
-.right-column[
-![alt text](images/mvc2.png)
-]
-
----
-.left-column[
-  ## What is it?
-  ## Why use it?
-]
-.right-column[
 # DOM Manipulation
-]
 
 --
-.right-column[
-# DOM Manipulation
-]
-
-
-.right-column[
-<li>TODO: Who all are using React?</li>
-]
-
+## is painful
 
 ---
-# Components
-
-![alt text](images/components0.png)
+template: inverse_center
+# You don't need to touch DOM
 
 ---
-# Components
 
-![alt text](images/components.png)
+# React Components
+--
+
+## Self contained
+
+--
+
+## Markup
+
+--
+
+## Behaviour
+
+---
+
+# React Components
+
+--
+
+## Declarative
+### Describe how your component looks like at any point in time
+
+--
+
+## Anytime data changes
+
+--
+
+## Re-render the component (efficiently)
+### Gives a huge abstraction
+
+---
+# Virtual DOM
+
+--
+## in memory data structure
+
+--
+## on data update
+
+--
+### create a new Virtual DOM
+
+--
+### Diff with the old one
+
+--
+### Perform minimum DOM operations in browser
+
+--
+## all javascript
+
+--
+### Server Side Render
+#### SEO friendly
+
 
 ---
 layout: false
@@ -257,12 +264,20 @@ class: inverse, left
 ```
 var HelloMessage = React.createClass({
   render: function() {
-    return React.createElement("div", null, "Hello ", this.props.name);
+    return React.DOM.span({onClick: someFunc}, "Hello, world!");
   }
 });
 
-React.render(React.createElement(HelloMessage, {name: "John"}), 
-*              document.getElementById("content"));
+var App = React.createClass({
+  render: function() {
+    return React.DOM.div({className: "main"}, [
+      React.createElement(HelloMessage)
+    ]);
+  }
+})
+
+React.render(React.createElement(App), 
+*               document.getElementById("content"));
 ```
 
 ---
@@ -273,27 +288,46 @@ class: inverse, left
 ```
 var HelloMessage = React.createClass({
   render: function() {
-    return <div>Hello {this.props.name}</div>;
+    return <span onClick={someFunc}>Hello, world!</span>
   }
 });
 
-React.render(<HelloMessage name="John" />, document.getElementById("content"));
+var App = React.createClass({
+  render: function() {
+    return <div>
+            <HelloMessage />
+           </div>
+    
+  }
+})
+
+React.render(React.createElement(App), 
+               document.getElementById("content"));
 ```
 
---
+---
 
-
+layout: false
+class: inverse, left
 # jsx compiles to...
 
 ```
 var HelloMessage = React.createClass({
   render: function() {
-    return React.createElement("div", null, "Hello ", this.props.name);
+    return React.DOM.span({onClick: someFunc}, "Hello, world!");
   }
 });
 
-React.render(React.createElement(HelloMessage, {name: "John"}), 
-            document.getElementById("content"));
+var App = React.createClass({
+  render: function() {
+    return React.DOM.div({className: "main"}, [
+      React.createElement(HelloMessage)
+    ]);
+  }
+})
+
+React.render(React.createElement(App), 
+               document.getElementById("content"));
 ```
 
 ---
@@ -308,9 +342,6 @@ class: top inverse
 
 --
 - componentDidMount()
-
---
-- shouldComponentUpdate()
 
 --
 - componentWillUpdate()
@@ -334,10 +365,13 @@ React.render(<HelloMessage name="John" />, document.getElementById("content"));
 ```
 
 --
+- way to communicate
+
+--
 - immutable
 
 --
-- pure components
+- accessed using `this.props.data`
 
 
 ---
@@ -395,6 +429,77 @@ class: top inverse
 
 --
 - Handles mouse, keyboard, touch events
+
+---
+class: top inverse
+# Using React in Rails
+
+---
+class: top inverse
+# 1. react-rails gem
+
+--
+- Gemfile
+```ruby
+gem 'react-rails', github: 'reactjs/react-rails'
+```
+
+--
+- generator
+```
+rails g react:install
+```
+
+--
+- application.js
+```
+//= require react
+//= require react_ujs
+//= require components
+```
+
+---
+class: top inverse
+# 1. react-rails gem
+
+- View helper
+```ruby
+<%= react_component('HelloMessage', name: 'John') %>
+```
+
+--
+
+- Server Side Rendering
+```ruby
+<%= react_component('HelloMessage', {name: 'John'}, {prerender: true}) %>
+```
+
+---
+class: top inverse
+# 2. Separate React App
+
+--
+- Rails as API Server
+
+--
+  - rails-api gem
+
+--
+- node.js API consumer
+
+
+- https://github.com/facebook/react/wiki/Complementary-Tools#full-stack-starter-kits
+
+--
+
+- https://github.com/johnthethird/react-starter-template
+
+--
+  - coffeescript
+
+--
+
+  - Server Side Rendering
 
 
     </textarea>
