@@ -3,144 +3,7 @@
   <head>
     <title>Title</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-   <style type="text/css">
-      @import url(//fonts.googleapis.com/css?family=Droid+Serif);
-      @import url(//fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
-      @import url(//fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
-
-      body {
-        font-family: 'Droid Serif';
-      }
-      h1, h2, h3 {
-        font-family: 'Yanone Kaffeesatz';
-        font-weight: 400;
-        margin-bottom: 0;
-      }
-      .remark-slide-content h1 { font-size: 3em; }
-      .remark-slide-content h2 { font-size: 2em; }
-      .remark-slide-content h3 { font-size: 1.6em; }
-      .footnote {
-        position: absolute;
-        bottom: 3em;
-      }
-      li p { line-height: 1.25em; }
-      .red { color: #fa0000; }
-      .large { font-size: 2em; }
-      a, a > code {
-        color: rgb(249, 38, 114);
-        text-decoration: none;
-      }
-      code {
-        -moz-border-radius: 5px;
-        -web-border-radius: 5px;
-        background: #e7e8e2;
-        border-radius: 5px;
-      }
-      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
-      .remark-code-line-highlighted     { background-color: #373832; }
-      .pull-left {
-        float: left;
-        width: 47%;
-      }
-      .pull-right {
-        float: right;
-        width: 47%;
-      }
-      .pull-right ~ p {
-        clear: both;
-      }
-      #slideshow .slide .content code {
-        font-size: 0.8em;
-      }
-      #slideshow .slide .content pre code {
-        font-size: 0.9em;
-        padding: 15px;
-      }
-      .inverse {
-        background: #272822;
-        color: #777872;
-        text-shadow: 0 0 20px #333;
-      }
-      .inverse {
-        color: #f3f3f3;
-      }
-
-      /* Slide-specific styling */
-      #slide-inverse .footnote {
-        bottom: 12px;
-        left: 20px;
-      }
-      #slide-how .slides {
-        font-size: 0.9em;
-        position: absolute;
-        top:  151px;
-        right: 140px;
-      }
-      #slide-how .slides h3 {
-        margin-top: 0.2em;
-      }
-      #slide-how .slides .first, #slide-how .slides .second {
-        padding: 1px 20px;
-        height: 90px;
-        width: 120px;
-        -moz-box-shadow: 0 0 10px #777;
-        -webkit-box-shadow: 0 0 10px #777;
-        box-shadow: 0 0 10px #777;
-      }
-      #slide-how .slides .first {
-        background: #fff;
-        position: absolute;
-        top: 20%;
-        left: 20%;
-        z-index: 1;
-      }
-      #slide-how .slides .second {
-        position: relative;
-        background: #fff;
-        z-index: 0;
-      }
-
-      /* Two-column layout */
-      .left-column {
-        color: #777;
-        width: 20%;
-        height: 92%;
-        float: left;
-      }
-        .left-column h2:last-of-type, .left-column h3:last-child {
-          color: #2B78E4;
-        }
-      .right-column {
-        width: 75%;
-        float: right;
-        padding-top: 1em;
-      }
-
-      li {
-        color: #aaa;
-        padding: 1.1em 0 0 0;
-      }
-      li:last-child {
-        color: #fefefe;
-      }
-
-      .hljs-monokai .hljs {
-  display: block;
-  padding: 0.5em;
-  background: #3A3A3A;
-}
-.hljs-monokai .javascript .xml {
-  opacity: 0.8;
-}
-.remark-code-line-highlighted {
-  background-color: #6F735F;
-}
-.remark-inline-code {
-  background-color: #6d6d6d;
-  border-radius: 0;
-}
-
-    </style>
+    <link href="style.css" media="all" rel="stylesheet" />
   </head>
   <body>
     <textarea id="source">
@@ -153,10 +16,11 @@ class: center, middle, inverse
 by: Girish Sonawane
 <br>
 <br>
-@girishso
+girish@cuberoot.in
 <br>
 <br>
-github.com/girishso
+Twitter, Github: @girishso
+
 
 ---
 # Agenda
@@ -172,7 +36,7 @@ class: left, top, inverse
 ---
 
 # React
-## Library for building Single Page Applications
+## Javascript Library for building Single Page Applications
 
 --
 
@@ -180,7 +44,7 @@ class: left, top, inverse
 
 --
 
-## <del>Model</del>
+## <del>Models</del>
 
 --
 
@@ -191,11 +55,72 @@ class: left, top, inverse
 # DOM Manipulation
 
 --
-## is painful
+## .red[is painful]
 
 ---
 template: inverse_center
 # You don't need to touch DOM
+
+---
+# React 
+
+- Components
+
+--
+
+- Not Templates
+
+---
+
+# React Components
+
+--
+
+- Separate your concerns
+
+--
+
+![alt text](images/comment_box1.png)
+
+---
+
+# React Components
+
+- Separate your concerns
+
+![alt text](images/comment_box2.png)
+
+---
+
+# React Components
+
+- Separate your concerns
+
+```
+- CommentBox
+  - CommentList
+    - Comment
+    - Comment
+  - CommentForm
+```
+
+---
+
+# React Components
+
+- Talk business language
+
+--
+
+- Unit testable
+
+--
+
+- Reusable
+
+--
+
+- Encapsulated
 
 ---
 
@@ -227,39 +152,49 @@ template: inverse_center
 
 --
 
-## Re-render the component (efficiently)
-### Gives a huge abstraction
+## Tell React - deal with it!
+
+--
+
+## Re-render entire app with every single update
 
 ---
 # Virtual DOM
 
 --
-## in memory data structure
+## treats DOM like a CPU
 
 --
-## on data update
+## in memory tree structure
 
 --
-### create a new Virtual DOM
+## on data update...
+
+--
+### Create a new Virtual DOM
 
 --
 ### Diff with the old one
 
 --
-### Perform minimum DOM operations in browser
+### Batch render minimum changes to browser DOM
 
---
+---
+# Virtual DOM ++
+
 ## all javascript
 
 --
 ### Server Side Render
 #### SEO friendly
 
+---
+# Creating Components
 
 ---
 layout: false
 class: inverse, left
-# Example Component
+# HelloWorld Component
 
 ```
 var HelloMessage = React.createClass({
@@ -283,7 +218,7 @@ React.render(React.createElement(App),
 ---
 layout: false
 class: inverse, left
-# Example Component JSX
+# HelloWorld Component JSX
 
 ```
 var HelloMessage = React.createClass({
@@ -352,84 +287,6 @@ class: top inverse
 --
 - componentWillUnmount()
 
-
----
-class: top inverse
-# React API
-## Props
-
---
-
-```
-React.render(<HelloMessage name="John" />, document.getElementById("content"));
-```
-
---
-- way to communicate
-
---
-- immutable
-
---
-- accessed using `this.props.data`
-
-
----
-class: top inverse
-# React API
-## State
-
---
-- Mutable
-
---
-
-```
-var Messages = React.createClass({
-  componentWillMount: function() {
-    // ajax call
-*   this.setState({mykey: data_returned_from_ajax});  
-  }
-  
-});
-```
-
-
----
-class: top inverse
-# Virtual DOM
-
---
-- In-memory data structure
-
---
-- Optimized for performance and memory usage
-
---
-## ON EVERY UPDATE…
-
---
-- Build new Virtual DOM tree
-
---
-- Diff with the old one
-
---
-- Compute minimal set of changes
-
---
-- Batch render all changes to browser DOM
-
----
-class: top inverse
-# Virtual DOM - Synthetic Events
-
---
-- A cross-browser wrapper around the browser’s native events
-
---
-- Handles mouse, keyboard, touch events
-
 ---
 class: top inverse
 # Using React in Rails
@@ -464,14 +321,14 @@ class: top inverse
 
 - View helper
 ```ruby
-<%= react_component('HelloMessage', name: 'John') %>
+<%= react_component('MyWidget', name: 'Awesome') %>
 ```
 
 --
 
 - Server Side Rendering
 ```ruby
-<%= react_component('HelloMessage', {name: 'John'}, {prerender: true}) %>
+<%= react_component('MyWidget', {name: 'Awesome'}, {prerender: true}) %>
 ```
 
 ---
@@ -479,27 +336,37 @@ class: top inverse
 # 2. Separate React App
 
 --
-- Rails as API Server
+
+## Rails as API Server
 
 --
   - rails-api gem
 
+---
+class: top inverse
+# 2. Separate React App
+
+## Node.js React Client
+
 --
-- node.js API consumer
 
-
-- https://github.com/facebook/react/wiki/Complementary-Tools#full-stack-starter-kits
+- Github wiki - https://github.com/facebook/react/wiki
 
 --
 
-- https://github.com/johnthethird/react-starter-template
+- react-starter-template - https://github.com/johnthethird/react-starter-template
 
 --
   - coffeescript
 
---
+--  
+  - bootstrap
 
+--
   - Server Side Rendering
+
+--
+  - live reloading
 
 
     </textarea>
@@ -509,17 +376,13 @@ class: top inverse
         <script type="text/javascript">
       var hljs = remark.highlighter.engine;
     </script>
-    <script src="remark.language.js" type="text/javascript"></script>
     <script type="text/javascript">
       var slideshow = remark.create({
           highlightStyle: 'monokai',
           highlightLanguage: 'javascript'
         }) ;
     </script>
-      <script>document.write('<script src="http://'
-        + (location.host || 'localhost').split(':')[0]
-    + ':8001/livereload.js?mindelay=10"></'
-        + 'script>')</script></body>
+
   </body>
 </html>
 
