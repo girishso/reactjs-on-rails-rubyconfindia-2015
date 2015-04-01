@@ -36,23 +36,54 @@ class: left, top, inverse
 ---
 
 # React
-## Javascript Library for building Single Page Applications
+- Javascript Library for building User Interfaces
 
 --
+- from facebook/instagram
+
+---
+
+# React
 
 ## View
 
 --
-
 ## <del>Models</del>
 
 --
-
 ## <del>Controllers</del>
+
+--
+## <del>bindings</del>
 
 
 ---
-# DOM Manipulation
+
+# Why React?
+
+![](images/frameworks.png)
+
+---
+
+# Why React?
+
+- Easy to pickup
+
+--
+  - Javascript
+
+--
+  - Small API
+
+--
+- Maintainable code
+
+--
+- React Native
+
+
+---
+# Changing DOM
 
 --
 ## .red[is painful]
@@ -66,15 +97,9 @@ template: inverse_center
 
 - Components
 
---
-
-- Not Templates
-
 ---
 
 # React Components
-
---
 
 - Separate your concerns
 
@@ -94,71 +119,44 @@ template: inverse_center
 
 # React Components
 
-- Separate your concerns
-
-```
-- CommentBox
-  - CommentList
-    - Comment
-    - Comment
-  - CommentForm
-```
-
----
-
-# React Components
-
 - Talk business language
 
 --
+- Composable
 
+--
 - Unit testable
 
 --
-
 - Reusable
 
 --
-
 - Encapsulated
 
 ---
 
 # React Components
---
 
-## Self contained
-
---
-
-## Markup
+- Markup
 
 --
-
-## Behaviour
+- Behaviour
 
 ---
 
 # React Components
 
+## Declarative
+
 --
 
-## Declarative
 ### Describe how your component looks like at any point in time
 
 ---
 
 # CommentBox Component
 
-![](images/0.png)
-
-
----
-
-# CommentBox Component
-
-![](images/1.png)
-
+![](images/d1.png)
 
 ---
 
@@ -173,14 +171,14 @@ template: inverse_center
 --
 
 ```
-this.setState({comments: all_blog_post_comments_from_server})
+this.setState({comments: data})
 ```
 
 ---
 
 # CommentBox Component
 
-![](images/2.png)
+![](images/d2.png)
 
 --
 
@@ -337,13 +335,14 @@ class: top inverse
 ```ruby
 gem 'react-rails', github: 'reactjs/react-rails'
 ```
-
 --
 - generator
 ```
 rails g react:install
-```
 
+app/assets/javascripts/components/
+app/assets/javascripts/components.js
+```
 --
 - application.js
 ```
