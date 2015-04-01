@@ -146,9 +146,25 @@ template: inverse_center
 ## Declarative
 ### Describe how your component looks like at any point in time
 
---
+---
 
-## Anytime data changes
+# CommentBox Component
+
+![](images/0.png)
+
+
+---
+
+# CommentBox Component
+
+![](images/1.png)
+
+
+---
+
+# CommentBox Component
+
+- Server sends a new comment...
 
 --
 
@@ -156,13 +172,27 @@ template: inverse_center
 
 --
 
+```
+this.setState({comments: all_blog_post_comments_from_server})
+```
+
+---
+
+# CommentBox Component
+
+![](images/2.png)
+
+--
+
 ## Re-render entire app with every single update
+
+
 
 ---
 # Virtual DOM
 
 --
-## treats DOM like a CPU
+## DOM is the new CPU
 
 --
 ## in memory tree structure
@@ -215,6 +245,13 @@ React.render(React.createElement(App),
 *               document.getElementById("content"));
 ```
 
+```html
+<div class="main">
+  <span>Hello, World!</span>
+</div>
+
+```
+
 ---
 layout: false
 class: inverse, left
@@ -236,7 +273,7 @@ var App = React.createClass({
   }
 })
 
-React.render(React.createElement(App), 
+React.render(<App />, 
                document.getElementById("content"));
 ```
 

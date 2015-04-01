@@ -30,7 +30,7 @@
         background: #e7e8e2;
         border-radius: 5px;
       }
-      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .remark-code, .remark-inline-code { font-family: 'Monaco'; }
       .remark-code-line-highlighted     { background-color: #373832; }
       .pull-left {
         float: left;
@@ -93,6 +93,9 @@
         background: #fff;
         z-index: 0;
       }
+      .remark-code {
+  font-size: 17px;
+}
 
       /* Two-column layout */
       .left-column {
