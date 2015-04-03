@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Title</title>
+    <title>ReactJS on Rails</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link href="style.css" media="all" rel="stylesheet" />
   </head>
@@ -83,6 +83,7 @@ class: left, top, inverse
 
 
 ---
+template: inverse_center
 # Changing DOM
 
 --
@@ -162,17 +163,28 @@ template: inverse_center
 
 # CommentBox Component
 
-- Server sends a new comment...
+- Server sends new data...
 
 --
 
 ## Tell React - deal with it!
 
---
-
 ```
+//
+// comments sent by server
+// data = [
+//    {"author": "Pete Hunt", "text": "Hey there!", ... },
+//    {"author": "Girish", "text": "Heya!", ... }
+// ]
+//
 this.setState({comments: data})
 ```
+
+---
+
+# CommentBox Component
+
+![](images/d1.png)
 
 ---
 
@@ -264,9 +276,9 @@ var HelloMessage = React.createClass({
 
 var App = React.createClass({
   render: function() {
-    return <div>
-            <HelloMessage />
-           </div>
+    return  <div className="main">
+              <HelloMessage />
+            </div>
     
   }
 })
