@@ -30,7 +30,7 @@
         background: #e7e8e2;
         border-radius: 5px;
       }
-      .remark-code, .remark-inline-code { font-family: 'Monaco'; }
+      .remark-code, .remark-inline-code { font-family: 'Monaco'; font-size: 1.1em; }
       .remark-code-line-highlighted     { background-color: #373832; }
       .pull-left {
         float: left;
@@ -135,4 +135,12 @@
 .remark-inline-code {
   background-color: #6d6d6d;
   border-radius: 0;
+}
+.remark-slide-scaler {
+  -webkit-box-shadow: 0 0 0 #888;
+  box-shadow: 0 0 0 #888;
+}
+
+body {
+  background-color: #272822 !important;
 }
