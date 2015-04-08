@@ -1,9 +1,10 @@
-      @import url(//fonts.googleapis.com/css?family=Droid+Serif);
+      @import url(//fonts.googleapis.com/css?family=Ubuntu:400,800);
       @import url(//fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
       @import url(//fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
 
       body {
-        font-family: 'Droid Serif';
+        font-family: 'Ubuntu';
+        font-weight: 800;
       }
       h1, h2, h3 {
         font-family: 'Yanone Kaffeesatz';
@@ -142,5 +143,6 @@
 }
 
 body {
-  background-color: #272822 !important;
+  /*background-color: #272822 !important;*/
+  /*font-size: 1.2em;*/
 }
